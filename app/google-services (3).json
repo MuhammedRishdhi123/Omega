@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "937791211598",
+    "firebase_url": "https://omega-5ca4e.firebaseio.com",
+    "project_id": "omega-5ca4e",
+    "storage_bucket": "omega-5ca4e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:937791211598:android:ef46e1bf2f4903e58fdb1f",
+        "android_client_info": {
+          "package_name": "com.example.omega"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "937791211598-67g85nkg0skbkj6qi5m24uuvfeg83ss1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.omega",
+            "certificate_hash": "eb25e27e78da8c6982b6b74a9e44599f2c41583a"
+          }
+        },
+        {
+          "client_id": "937791211598-5hjgif9pc5npvl4u0osfp0bpbhaubfdi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCC9372o4ETIQwhvV9dMpfUTZnflnLRrQw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "937791211598-5hjgif9pc5npvl4u0osfp0bpbhaubfdi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
