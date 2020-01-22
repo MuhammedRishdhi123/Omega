@@ -13,6 +13,7 @@ public class customer extends SugarRecord<customer>{
         this.email=email;
         this.phoneNumber=phoneNumber;
         this.password=password;
+
     }
 
     public String getUsername() {

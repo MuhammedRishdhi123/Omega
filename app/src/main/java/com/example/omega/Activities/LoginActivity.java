@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.omega.Model.customer;
 import com.example.omega.R;
+import com.example.omega.prevalent;
 
 
 import java.util.List;
@@ -45,8 +46,9 @@ public class LoginActivity extends AppCompatActivity {
                     for (customer c : customerList) {
                         if (userEmail1.equals(c.getEmail()) && password1.equals(c.getPassword())) {
                             found=true;
-                           // Intent home = new Intent(LoginActivity.this, HomeActivity.class);
-                            //startActivity(home);
+                            prevalent.currentOnlineCustomer=new customer(c.getUsername(),c.getEmail(),c.getPhoneNumber(),c.getPassword());
+                            Intent home = new Intent(LoginActivity.this, HomeActivity.class);
+                            startActivity(home);
                         }
 
                     }
