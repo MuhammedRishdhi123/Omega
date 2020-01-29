@@ -18,7 +18,7 @@
 
         <meta-data
             android:name="DATABASE"
-            android:value="omega.db" />
+            android:value="omegaStyle.db" />
         <meta-data
             android:name="VERSION"
             android:value="2" />
@@ -28,19 +28,16 @@
         <meta-data
             android:name="DOMAIN_PACKAGE_NAME"
             android:value="com.example.omega.Model" />
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
 
-        <activity android:name="com.example.omega.Activities.LoginActivity">
+        <activity android:name=".Activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.omega.Activities.RegisterActivity" />
-        <activity android:name="com.example.omega.Activities.HomeActivity" />
+        <activity android:name=".Activities.RegisterActivity" />
+        <activity android:name=".Activities.HomeActivity" />
     </application>
 
 </manifest>

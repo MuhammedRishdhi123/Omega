@@ -23,22 +23,22 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         username_edt=(EditText)findViewById(R.id.name);
-        email_edt=(EditText)findViewById(R.id.email);
-        phoneNumber_edt=(EditText)findViewById(R.id.phone);
-        password_edt=(EditText)findViewById(R.id.password);
-        register_btn=(Button)findViewById(R.id.register);
-        register_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String username=username_edt.getText().toString();
-                String email=email_edt.getText().toString();
-                String phoneNumber=phoneNumber_edt.getText().toString();
-                String password=password_edt.getText().toString();
+                    email_edt=(EditText)findViewById(R.id.email);
+                    phoneNumber_edt=(EditText)findViewById(R.id.phone);
+                    password_edt=(EditText)findViewById(R.id.password);
+                    register_btn=(Button)findViewById(R.id.register);
+                    register_btn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            String username=username_edt.getText().toString();
+                            String email=email_edt.getText().toString();
+                            String phoneNumber=phoneNumber_edt.getText().toString();
+                            String password=password_edt.getText().toString();
 
-                if(username.equals("")||email.equals("")||password.equals("")){
-                    Toast.makeText(getApplicationContext(),"Please fill all fields",Toast.LENGTH_SHORT).show();
-                }
-                else{
+                            if(username.equals("")||email.equals("")||password.equals("")){
+                                Toast.makeText(getApplicationContext(),"Please fill all fields",Toast.LENGTH_SHORT).show();
+                            }
+                            else{
                     Boolean checkMail=true;
                     List<customer> customerList=customer.listAll(customer.class);
                     for(customer c:customerList){
