@@ -7,7 +7,6 @@ public class customer extends SugarRecord<customer>{
 
     public customer() {
     }
-
     public customer(String username,String email,String phoneNumber,String password) {
         this.username = username;
         this.email=email;
@@ -15,6 +14,7 @@ public class customer extends SugarRecord<customer>{
         this.password=password;
 
     }
+
 
     public String getUsername() {
         return username;
@@ -47,4 +47,5 @@ public class customer extends SugarRecord<customer>{
     public void setPassword(String password) {
         this.password = password;
     }
+
 }

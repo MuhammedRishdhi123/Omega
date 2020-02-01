@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
                     for (customer c : customerList) {
                         if (userEmail1.equals(c.getEmail()) && password1.equals(c.getPassword())) {
                             found=true;
-                            prevalent.currentOnlineCustomer=new customer(c.getUsername(),c.getEmail(),c.getPhoneNumber(),c.getPassword());
+                            prevalent.currentOnlineCustomer=c;
                             Intent home = new Intent(LoginActivity.this, HomeActivity.class);
                             startActivity(home);
                         }

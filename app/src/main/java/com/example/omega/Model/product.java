@@ -3,18 +3,38 @@ package com.example.omega.Model;
 import com.orm.SugarRecord;
 
 public class product extends SugarRecord<product> {
-    private String productName,productCategory,productDescription,imageUrl;
+    private String productName,productCategory,productDescription,imageUrl,fullDescription;
+
     private double productPrice;
+    private int stock;
 
     public product() {
     }
 
-    public product(String productName,String productCategory,String productDescription,double productPrice,String imageUrl) {
+    public product(String productName, String productCategory, String productDescription, String imageUrl, double productPrice, int stock,String fullDescription) {
         this.productName = productName;
-        this.productCategory=productCategory;
-        this.productDescription=productDescription;
-        this.productPrice=productPrice;
-        this.imageUrl=imageUrl;
+        this.productCategory = productCategory;
+        this.productDescription = productDescription;
+        this.imageUrl = imageUrl;
+        this.productPrice = productPrice;
+        this.stock = stock;
+        this.fullDescription=fullDescription;
+    }
+
+    public String getFullDescription() {
+        return fullDescription;
+    }
+
+    public void setFullDescription(String fullDescription) {
+        this.fullDescription = fullDescription;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
     public String getProductName() {
