@@ -49,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
                             prevalent.currentOnlineCustomer=c;
                             Intent home = new Intent(LoginActivity.this, HomeActivity.class);
                             startActivity(home);
+
                         }
 
                     }

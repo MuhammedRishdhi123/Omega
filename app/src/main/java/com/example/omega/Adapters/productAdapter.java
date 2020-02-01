@@ -1,6 +1,5 @@
 package com.example.omega.Adapters;
-
-
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,11 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import android.content.Intent;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.omega.Activities.HomeActivity;
+import com.example.omega.Activities.detailedProductActivity;
 import com.example.omega.Interfaces.itemClickListener;
 import com.example.omega.Model.product;
 import com.example.omega.R;
@@ -21,9 +22,11 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class productAdapter extends RecyclerView.Adapter<productAdapter.ViewHolder> {
  public ArrayList<product> productList;
  public Context context;
+
 
     public productAdapter(ArrayList<product> productList,Context context) {
         this.productList=productList;
@@ -48,13 +51,14 @@ public class productAdapter extends RecyclerView.Adapter<productAdapter.ViewHold
         holder.price.setText(Double.toString(prod.getProductPrice()));
         Picasso.get().load(prod.getImageUrl()).into(holder.productImage);
 
-        holder.cardView.setOnClickListener(new View.OnClickListener(){
+
+        holder.itemView.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
-                Long id=prod.getId();
-                Bundle bundle=new Bundle();
-                bundle.putLong("productId",id);
+                Intent intent=new Intent(context,detailedProductActivity.class);
+                intent.putExtra("pid",prod.getId());
+                context.startActivity(intent);
 
             }
         });
