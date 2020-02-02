@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 public class cart extends SugarRecord<cart> {
     private product product;
-    private Long customerId;
     private int quantity;
     private customer customer;
     private String status;
@@ -15,22 +14,14 @@ public class cart extends SugarRecord<cart> {
     public cart() {
     }
 
-    public cart(com.example.omega.Model.product product, Long customerId, int quantity, com.example.omega.Model.customer customer, String status, double total) {
+    public cart(com.example.omega.Model.product product,int quantity, com.example.omega.Model.customer customer, String status, double total) {
         this.product = product;
-        this.customerId = customerId;
         this.quantity = quantity;
         this.customer = customer;
         this.status = status;
         this.total = total;
     }
 
-    public Long getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
-    }
 
     public product getProducts() {
         return product;

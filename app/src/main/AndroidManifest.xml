@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon,android:theme">
-        <activity android:name=".Activities.detailedProductActivity"></activity>
+        <activity android:name=".Activities.cartActivity"></activity>
+        <activity android:name=".Activities.detailedProductActivity" />
         <activity android:name=".Activities.LauncherActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

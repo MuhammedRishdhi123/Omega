@@ -40,7 +40,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     private RecyclerView recyclerView;
     private productAdapter adapters;
-    RecyclerView.LayoutManager layoutManager;
+
     ArrayList<product> productList=new ArrayList<product>();
     //Fragment fragment=null;
 
@@ -62,8 +62,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+               Intent cartIntent=new Intent(HomeActivity.this,cartActivity.class);
+               startActivity(cartIntent);
             }
         });
 
@@ -132,6 +132,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.nav_cart)
         {
+            Intent cartIntent=new Intent(HomeActivity.this,cartActivity.class);
+            startActivity(cartIntent);
 
         }
         else if (id == R.id.nav_order)

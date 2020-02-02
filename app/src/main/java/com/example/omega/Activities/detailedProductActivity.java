@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -51,7 +52,7 @@ public class detailedProductActivity extends AppCompatActivity {
         addProductTocartbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            //   addingToCart();
+              addingToCart();
             }
         });
 
@@ -74,25 +75,49 @@ public class detailedProductActivity extends AppCompatActivity {
 
     }
 
-//    private void addingToCart() {
-//        String savepDate;
-//        Long custId = prevalent.currentOnlineCustomer.getId();
-//        Calendar c = Calendar.getInstance();
-//        SimpleDateFormat pDate = new SimpleDateFormat("MMM dd, yyyy");
-//        savepDate = pDate.format(c.getTime());
-//        product p = SugarRecord.findById(product.class, productId);
-//        customer cust = SugarRecord.findById(customer.class, custId);
-//        List<cart> cartcheck = cart.executeQuery("select * from CART where ");
-//        if (cartcheck.isEmpty()) {
-//            cart cart = new cart();
-//            cart.setProducts(new ArrayList<product>());
-//            cart.getProducts().add(p);
-//            cart.setCustomer(cust);
-//            cart.setQuantity(Integer.parseInt(numberButton.getNumber()));
-//            cart.setStatus("NOTPAID");
-//            cart.save();
-//        }
-//    }
+    private void addingToCart() {
+        String savepDate;
+        Long cartId=0l;
+        Long prodId=0l;
+        Long custId = prevalent.currentOnlineCustomer.getId();
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat pDate = new SimpleDateFormat("MMM dd, yyyy");
+        savepDate = pDate.format(c.getTime());
+        product p = SugarRecord.findById(product.class, productId);//getting the product object
+        customer customer = SugarRecord.findById(customer.class, custId);//getting the current customer object
+        List<cart> cartcheck = cart.listAll(cart.class);//checking for the customers cart
+        for(cart cart:cartcheck) {
+            if (cart.getProducts().getId().equals(productId) && cart.getCustomer().getId().equals(custId) && cart.getStatus().equals("NOTPAID")) {
+                cartId=cart.getId();//getting the product cart if it is already ordered
+                prodId=cart.getProducts().getId();
+            }
+       }
+        int orderQuantity=Integer.parseInt(numberButton.getNumber());
+        if(orderQuantity>p.getStock()){
+            Toast.makeText(getApplicationContext(),"Sorry we are out of stock",Toast.LENGTH_SHORT).show();
+        }
+        else{
+            if(prodId.equals(p.getId())) {
+                cart tempCart = cart.findById(cart.class, cartId);//getting the product cart
+                tempCart.setQuantity(orderQuantity + tempCart.getQuantity());
+                tempCart.setStatus("NOTPAID");
+                tempCart.setTotal(tempCart.getQuantity() * p.getProductPrice());
+                tempCart.save();
+                Toast.makeText(getApplicationContext(),"Producted added to cart",Toast.LENGTH_SHORT).show();
+            }
+            else{
+                cart tempCart=new cart();
+                tempCart.setProducts(p);
+                tempCart.setCustomer(customer);
+                tempCart.setStatus("NOTPAID");
+                tempCart.setQuantity(orderQuantity);
+                tempCart.setTotal(orderQuantity*p.getProductPrice());
+                tempCart.save();
+                Toast.makeText(getApplicationContext(),"Producted added to cart",Toast.LENGTH_SHORT).show();
+            }
+            p.setStock(p.getStock()-orderQuantity);//updating the stocks after the order is placed
+        }
+    }
 
     private void getProductDetails(Long productId) {
         List<product> productList= product.listAll(product.class);
