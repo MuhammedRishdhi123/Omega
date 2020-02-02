@@ -16,13 +16,14 @@ import java.util.List;
 public class RegisterActivity extends AppCompatActivity {
 
     EditText username_edt,email_edt,phoneNumber_edt,password_edt;
-    Button register_btn;
+    Button register_btn,cancel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
         username_edt=(EditText)findViewById(R.id.name);
+        cancel=(Button)findViewById(R.id.cancel);
                     email_edt=(EditText)findViewById(R.id.email);
                     phoneNumber_edt=(EditText)findViewById(R.id.phone);
                     password_edt=(EditText)findViewById(R.id.password);
@@ -59,6 +60,12 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
+                    cancel.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            RegisterActivity.super.onBackPressed();
+                        }
+                    });
 
 
 

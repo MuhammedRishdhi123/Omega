@@ -78,7 +78,7 @@ public class cartAdapter extends RecyclerView.Adapter<cartAdapter.ViewHolder> {
         return cartList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView image;
         public TextView quantity,name,price;
         public Button delete;
@@ -93,10 +93,7 @@ public class cartAdapter extends RecyclerView.Adapter<cartAdapter.ViewHolder> {
         }
 
 
-        @Override
-        public void onClick(View view) {
 
-        }
     }
 
 

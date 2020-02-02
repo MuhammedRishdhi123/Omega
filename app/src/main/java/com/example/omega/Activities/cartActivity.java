@@ -40,7 +40,7 @@ public class cartActivity extends AppCompatActivity {
         recyclerView = (RecyclerView)findViewById(R.id.productCart);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        List<cart> listOfCarts = cart.findWithQuery(cart.class, "Select * from cart where status = ? ","NOTPAID");
+        List<cart> listOfCarts = cart.findWithQuery(cart.class, "Select * from cart where customer=? and status=?",prevalent.currentOnlineCustomer.getId().toString(),"NOTPAID");
         adapters = new cartAdapter(listOfCarts, this);
         recyclerView.setAdapter(adapters);
 
@@ -51,8 +51,8 @@ public class cartActivity extends AppCompatActivity {
 
         }
 
-       numberOfitems.setText(String.valueOf(quantity));
-        totalCost.setText(String.valueOf(total));//here we set the total amount and the no of items in the checkout menu
+       numberOfitems.setText("No of items:"+String.valueOf(quantity));//total number of items in cart
+        totalCost.setText("Total :"+String.valueOf(total));//here we set the total amount and the no of items in the checkout menu
 
 
 
